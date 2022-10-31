@@ -16,6 +16,7 @@ import edu.wpi.first.wpilibj.Ultrasonic;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import frc.robot.Constants.DriveConstants;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
+import edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class DriveSubsystem extends SubsystemBase {
@@ -23,6 +24,8 @@ public class DriveSubsystem extends SubsystemBase {
   private final WPI_TalonSRX LeftMotor2 = new WPI_TalonSRX(DriveConstants.kLeftMotor2Port);
   private final WPI_TalonSRX RightMotor1 = new WPI_TalonSRX(DriveConstants.kRightMotor1Port);
   private final WPI_TalonSRX RightMotor2 = new WPI_TalonSRX(DriveConstants.kRightMotor2Port);
+  private final PWMSparkMax NeoShooter = new PWMSparkMax(DriveConstants.kShooterPort);
+  private final WPI_TalonSRX IntakeMotor = new WPI_TalonSRX(DriveConstants.kIntakePort);
 
   private final MotorControllerGroup m_leftMotors = new MotorControllerGroup(
       LeftMotor1,
