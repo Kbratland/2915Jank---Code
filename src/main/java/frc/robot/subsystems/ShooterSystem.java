@@ -7,7 +7,7 @@ import frc.robot.Constants.DriveConstants;
 
 public class ShooterSystem extends SubsystemBase {
     private final PWMSparkMax NeoShooter = new PWMSparkMax(DriveConstants.kShooterPort);
-    Encoder encoder = new Encoder(NeoShooter);
+    Encoder encoder = new Encoder(0, 1);
 
     public void resetEncoders() {
         encoder.reset();
