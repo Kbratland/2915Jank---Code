@@ -5,5 +5,24 @@ import frc.robot.subsystems.ShooterSystem;
 
 public class LAUNCH extends CommandBase {
     public ShooterSystem shooterSystem;
-    long duration = 0;
+    double speed = 0;
+    private long timerStart = 0;
+    private long duration = 5000;
+
+    public LAUNCH(long duration) {
+        this.duration = duration;
+    }
+
+    public void initialize() {
+        timerStart = System.currentTimeMillis();
+    }
+
+    public void execute() {
+        shooterSystem.shoot();
+    }
+
+    public boolean isFinished() {
+        return System.currentTimeMillis() - timerStart >= duration;
+    }
+
 }

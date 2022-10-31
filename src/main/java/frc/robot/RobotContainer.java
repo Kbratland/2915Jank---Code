@@ -9,12 +9,14 @@ package frc.robot;
 // import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.PS4Controller;
+import frc.robot.commands.LAUNCH;
 import frc.robot.commands.TurnToAngle;
 // import frc.robot.Constants.DriveConstants;
 //import frc.robot.Constants.OIConstants;
 //import frc.robot.commands.TurnToAngle;
 //import frc.robot.commands.TurnToAngleProfiled;
 import frc.robot.subsystems.DriveSubsystem;
+// import frc.robot.subsystems.ShooterSystem;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 //import edu.wpi.first.wpilibj2.command.PIDCommand;
@@ -104,6 +106,7 @@ public class RobotContainer {
          * m_robotDrive));
          */
         button1.whenPressed(new TurnToAngle(90, m_robotDrive));
+        button2.whenHeld(new LAUNCH(5000));
     }
 
     /**

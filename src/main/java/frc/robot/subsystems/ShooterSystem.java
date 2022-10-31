@@ -13,4 +13,7 @@ public class ShooterSystem extends SubsystemBase {
         encoder.reset();
     }
 
+    public void shoot() {
+        NeoShooter.set(0.5);
+    }
 }
