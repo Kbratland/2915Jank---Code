@@ -19,6 +19,7 @@ public class LAUNCH extends CommandBase {
 
     public void execute() {
         shooterSystem.shoot();
+        System.out.println("spinning");
     }
 
     public boolean isFinished() {
