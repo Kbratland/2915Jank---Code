@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.DriveConstants;
 
 public class ShooterSystem extends SubsystemBase {
-    private final PWMSparkMax NeoShooter = new PWMSparkMax(DriveConstants.kShooterPort);
+    private final PWMSparkMax neoShooter = new PWMSparkMax(DriveConstants.kShooterPort);
     // Encoder encoder = new Encoder(0, 1);
 
     // public void resetEncoders() {
@@ -17,6 +17,7 @@ public class ShooterSystem extends SubsystemBase {
     }
 
     public void shoot() {
-        NeoShooter.set(0.5);
+        neoShooter.set(0.5);
+        System.out.println("Shooter Subsystem Shooting");
     }
 }

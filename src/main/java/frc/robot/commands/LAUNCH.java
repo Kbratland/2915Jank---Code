@@ -11,15 +11,19 @@ public class LAUNCH extends CommandBase {
 
     public LAUNCH(long duration, ShooterSystem shooter) {
         this.duration = duration;
+        this.shooterSystem = shooter;
+        addRequirements(shooter);
     }
 
+    @Override
     public void initialize() {
         timerStart = System.currentTimeMillis();
+        System.out.println(timerStart);
     }
 
     public void execute() {
         shooterSystem.shoot();
-        System.out.println("spinning");
+        System.out.println("command spinning");
     }
 
     public boolean isFinished() {
