@@ -1,12 +1,13 @@
 package frc.robot.subsystems;
 
 // import edu.wpi.first.wpilibj.Encoder;
-import edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax;
+// import com.revrobotics.CANSparkMax;
+//import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.DriveConstants;
 
 public class ShooterSystem extends SubsystemBase {
-    private final PWMSparkMax neoShooter = new PWMSparkMax(DriveConstants.kShooterPort);
+    private final CANSparkMax neoShooter = new CANSparkMax(DriveConstants.kShooterPort);
     // Encoder encoder = new Encoder(0, 1);
 
     // public void resetEncoders() {
@@ -17,7 +18,7 @@ public class ShooterSystem extends SubsystemBase {
     }
 
     public void shoot() {
-        neoShooter.set(0.5);
+        // neoShooter.set(0.5);
         System.out.println("Shooter Subsystem Shooting");
     }
 }
