@@ -8,17 +8,13 @@ import frc.robot.Constants.DriveConstants;
 
 public class ShooterSystem extends SubsystemBase {
     private final CANSparkMax neoShooter = new CANSparkMax(DriveConstants.kShooterPort, MotorType.kBrushless);
-    // Encoder encoder = new Encoder(0, 1);
-
-    // public void resetEncoders() {
-    // encoder.reset();
-    // }
     public ShooterSystem() {
-
     }
-
     public void shoot() {
-        neoShooter.set(0.5);
+        neoShooter.set(1);
         System.out.println("Shooter Subsystem Shooting");
+    }
+    public void end(){
+        neoShooter.set(0);
     }
 }

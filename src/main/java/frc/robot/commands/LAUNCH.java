@@ -13,6 +13,7 @@ public class LAUNCH extends CommandBase {
         this.duration = duration;
         this.shooterSystem = shooter;
         addRequirements(shooter);
+        System.out.println(duration);
     }
 
     @Override
@@ -20,14 +21,18 @@ public class LAUNCH extends CommandBase {
         timerStart = System.currentTimeMillis();
         System.out.println(timerStart);
     }
-
+    @Override
     public void execute() {
         shooterSystem.shoot();
-        System.out.println("command spinning");
     }
-
+  
+    public void end(boolean interrupted){
+        shooterSystem.end();
+    }
+    @Override
     public boolean isFinished() {
-        return System.currentTimeMillis() - timerStart >= duration;
+        long e = System.currentTimeMillis() - timerStart;
+        return (e >= duration);
     }
 
 }
