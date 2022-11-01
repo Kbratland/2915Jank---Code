@@ -9,7 +9,7 @@ public class LAUNCH extends CommandBase {
     private long timerStart = 0;
     private long duration = 5000;
 
-    public LAUNCH(long duration) {
+    public LAUNCH(long duration, ShooterSystem shooter) {
         this.duration = duration;
     }
 
