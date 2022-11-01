@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.DriveConstants;
 
 public class ShooterSystem extends SubsystemBase {
-    private final CANSparkMax neoShooter = new CANSparkMax(DriveConstants.kShooterPort, true);
+    private final CANSparkMax neoShooter = new CANSparkMax(DriveConstants.kShooterPort, MotorType.kBrushless);
     // Encoder encoder = new Encoder(0, 1);
 
     // public void resetEncoders() {
@@ -18,7 +18,7 @@ public class ShooterSystem extends SubsystemBase {
     }
 
     public void shoot() {
-        // neoShooter.set(0.5);
+        neoShooter.set(0.5);
         System.out.println("Shooter Subsystem Shooting");
     }
 }
