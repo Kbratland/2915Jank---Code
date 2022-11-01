@@ -107,7 +107,7 @@ public class RobotContainer {
          * m_robotDrive));
          */
         button1.whenPressed(new TurnToAngle(90, m_robotDrive));
-        button2.whenPressed(new LAUNCH(5000, m_shooterSystem));
+        button2.whenPressed(new LAUNCH(4000, m_shooterSystem));
     }
 
     /**
