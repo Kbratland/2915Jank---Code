@@ -1,6 +1,7 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.subsystems.ShooterSystem;
 
 public class LAUNCH extends CommandBase {
@@ -9,7 +10,7 @@ public class LAUNCH extends CommandBase {
     private long timerStart = 0;
     private long duration = 5000;
 
-    public LAUNCH(long duration) {
+    public LAUNCH(long duration, SubsystemBase shooterSystem) {
         this.duration = duration;
     }
 
