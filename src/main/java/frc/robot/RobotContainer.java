@@ -113,9 +113,9 @@ public class RobotContainer {
          */
         button1.whenPressed(new TurnToAngle(90, m_robotDrive));
         button2.whenPressed(new LAUNCH(5000, m_shooterSystem));
-        button3.whenPressed(absorb);
+        button3.whenHeld(absorb);
         button4.cancelWhenPressed(absorb);
-        button5.whenPressed(new BARF(m_shooterSystem, m_intakeSubsytem));
+        button5.whenPressed(new BARF(m_shooterSystem, m_intakeSubsytem, 2500));
     }
 
     /**

@@ -16,9 +16,10 @@ public class IntakeSubsytem extends SubsystemBase {
     // }
 
     public void AbsorbBalls() {
-        ballIntake.set(0.5);
+        ballIntake.set(-0.5);
     }
     public void EjectBalls(){
-        ballIntake.set(-0.5);
+        ballIntake.set(0.5);
+        System.out.println("Ejecting");
     }
 }

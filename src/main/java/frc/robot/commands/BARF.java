@@ -8,10 +8,11 @@ public class BARF extends CommandBase{
     public ShooterSystem shooter;
     public IntakeSubsytem intake;
     private long timerStart = 0;
-    private long duration = 5000;
-    public BARF(ShooterSystem shooter, IntakeSubsytem intake){
+    private long duration = 2500;
+    public BARF(ShooterSystem shooter, IntakeSubsytem intake, long duration){
         addRequirements(shooter, intake);
         this.shooter = shooter;
+        this.duration = duration;
         this.intake = intake;
     }
     @Override

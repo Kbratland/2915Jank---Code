@@ -20,9 +20,13 @@ public class ShooterSystem extends SubsystemBase {
         neoShooter.set(0);
     }
     public void convey(){
-        beltMover.set(0.5);
+        beltMover.set(-0.5);
+    }
+    public void stopConvey(){
+        beltMover.set(0);
     }
     public void barf(){
-        beltMover.set(-0.5);
+        beltMover.set(0.5);
+        System.out.println("Barfing");
     }
 }
