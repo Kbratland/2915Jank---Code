@@ -19,7 +19,7 @@ public class AUTONOMOUSbackwards extends CommandBase {
     }
 
     public void execute() {
-        driveSubsystem.arcadeDrive(-0.75, 0);
+        driveSubsystem.arcadeDrive(-0.5, 0);
     }
 
     public boolean isFinished() {

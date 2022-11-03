@@ -6,7 +6,7 @@ import frc.robot.subsystems.DriveSubsystem;
 public class AUTONOMOUSforwards extends CommandBase {
     public DriveSubsystem driveSubsystem;
     private long timerStart = 0;
-    private long duration = 4000;
+    private long duration = 3000;
 
     public AUTONOMOUSforwards(DriveSubsystem driveSubsystem, long duration) {
         addRequirements(driveSubsystem);

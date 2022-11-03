@@ -12,20 +12,12 @@ import edu.wpi.first.wpilibj.PS4Controller;
 import frc.robot.commands.ABSORB;
 import frc.robot.commands.BARF;
 import frc.robot.commands.LAUNCH;
-// import frc.robot.commands.TurnToAngle;
-// import frc.robot.Constants.DriveConstants;
-//import frc.robot.Constants.OIConstants;
-//import frc.robot.commands.TurnToAngle;
-//import frc.robot.commands.TurnToAngleProfiled;
+import frc.robot.commands.PIDstraight;
 import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.IntakeSubsytem;
 import frc.robot.subsystems.ShooterSystem;
-// import frc.robot.subsystems.ShooterSystem;
 import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.InstantCommand;
-//import edu.wpi.first.wpilibj2.command.PIDCommand;
 import edu.wpi.first.wpilibj2.command.RunCommand;
-//import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
 /**
@@ -52,7 +44,7 @@ public class RobotContainer {
     JoystickButton button3 = new JoystickButton(m_driverController, 3);
     JoystickButton button4 = new JoystickButton(m_driverController, 4);
     JoystickButton button5 = new JoystickButton(m_driverController, 5);
-   
+
     // JoystickButton button6 = new JoystickButton(m_driverController, 6);
     // JoystickButton button7 = new JoystickButton(m_driverController, 7);
     // JoystickButton button8 = new JoystickButton(m_driverController, 8);
@@ -66,7 +58,6 @@ public class RobotContainer {
     public RobotContainer() {
         // Configure the button bindings
         configureButtonBindings();
-
         // Configure default commands
         // Set the default drive command to split-stick arcade drive
         m_robotDrive.setDefaultCommand(
@@ -88,7 +79,7 @@ public class RobotContainer {
      * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
      */
     private void configureButtonBindings() {
-        
+
         /*
          * Drive at half speed when the right bumper is held
          * 
@@ -113,7 +104,7 @@ public class RobotContainer {
          * // Require the robot drive
          * m_robotDrive));
          */
-        //button2.whenPressed(new TurnToAngle(90, m_robotDrive));
+        // button2.whenPressed(new TurnToAngle(90, m_robotDrive));
         button1.whenPressed(new LAUNCH(2500, m_shooterSystem));
         button3.whenHeld(absorb);
         button4.whenPressed(new BARF(m_shooterSystem, m_intakeSubsytem, 2500));
@@ -126,6 +117,6 @@ public class RobotContainer {
      */
     public Command getAutonomousCommand() {
         // no auto
-        return new InstantCommand();
+        return new PIDstraight(3000, m_robotDrive, 0);
     }
 }
