@@ -12,8 +12,8 @@ public class ShooterSystem extends SubsystemBase {
     private final WPI_TalonFX beltMover = new WPI_TalonFX(DriveConstants.kConveyorPort);
     public ShooterSystem() {
     }
-    public void shoot() {
-        neoShooter.set(1);
+    public void shoot(double speed) {
+        neoShooter.set(speed);
         System.out.println("Shooter Subsystem Shooting");
     }
     public void end(){

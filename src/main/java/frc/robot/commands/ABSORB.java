@@ -6,7 +6,7 @@ import frc.robot.subsystems.IntakeSubsytem;
 
 public class ABSORB extends CommandBase{
     public IntakeSubsytem intake;
-    public Joystick joystick = new Joystick(0);;
+    public Joystick joystick = new Joystick(0);
     double speed = 0.75;
     public ABSORB(IntakeSubsytem intake,Joystick joystick){
         addRequirements(intake);

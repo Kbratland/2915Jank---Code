@@ -5,10 +5,12 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.ShooterSystem;
 
 public class LAUNCH extends CommandBase {
-    public ShooterSystem shooterSystem;
-    double speed = 0;
-    public LAUNCH(ShooterSystem shooter) {
+    public ShooterSystem Shooter;
+    double speed = 1;
+    public LAUNCH(ShooterSystem shooter, double speed) {
         addRequirements(shooter);
+        this.shooter = shooter;
+        this.speed = speed;
         System.out.println();
     }
 
@@ -18,15 +20,13 @@ public class LAUNCH extends CommandBase {
     }
     @Override
     public void execute() {
-        shooterSystem.shoot();
+        system.out.println("attempting to shoot");
+        shooterSystem.shoot(speed);
     }
-  
-    public void end(boolean interrupted){
-        shooterSystem.end();
-    }
-    @Override
     public boolean isFinished() {
         return false;
     }
-
+    public void end(boolean interrupted){
+        shooterSystem.end();
+    }
 }
