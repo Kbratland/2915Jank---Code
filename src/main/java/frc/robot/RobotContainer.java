@@ -46,6 +46,7 @@ public class RobotContainer {
     private final IntakeSubsytem m_intakeSubsytem = new IntakeSubsytem();
     private final ABSORB absorb = new ABSORB(m_intakeSubsytem, m_driverController);
     private final FONDLE fondle = new FONDLE(m_shooterSystem, m_driverController);
+    private final LAUNCH launch = new LAUNCH(m_shooterSystem);
     // The driver's controller
     // PS4Controller m_driverController = new
     // PS4Controller(OIConstants.kDriverControllerPort);
@@ -116,7 +117,7 @@ public class RobotContainer {
          * m_robotDrive));
          */
         //button2.whenPressed(new TurnToAngle(90, m_robotDrive));
-        button1.whenPressed(new LAUNCH(2500, m_shooterSystem));
+        button1.whenHeld(launch);
         button3.whenHeld(absorb);
         button4.whenPressed(new BARF(m_shooterSystem, m_intakeSubsytem, 2500));
         button5.whenPressed(fondle);
