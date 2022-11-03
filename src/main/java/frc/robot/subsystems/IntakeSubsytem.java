@@ -15,11 +15,14 @@ public class IntakeSubsytem extends SubsystemBase {
     // encoder.reset();
     // }
 
-    public void AbsorbBalls() {
-        ballIntake.set(-0.5);
+    public void AbsorbBalls(double speed) {
+        ballIntake.set(speed);
     }
     public void EjectBalls(){
-        ballIntake.set(0.5);
+        ballIntake.set(1);
         System.out.println("Ejecting");
+    }
+    public void inend(){
+        ballIntake.set(0);
     }
 }

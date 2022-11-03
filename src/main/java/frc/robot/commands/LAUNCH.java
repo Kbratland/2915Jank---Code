@@ -24,7 +24,7 @@ public class LAUNCH extends CommandBase {
     @Override
     public void execute() {
         shooterSystem.shoot();
-        if(System.currentTimeMillis() - timerStart >= duration - 750){
+        if(System.currentTimeMillis() - timerStart >= 1250){
             shooterSystem.convey();
         }
     }

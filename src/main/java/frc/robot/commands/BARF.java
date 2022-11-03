@@ -24,7 +24,12 @@ public class BARF extends CommandBase{
         intake.EjectBalls();
     }
     public boolean isFinished(){
-        return (System.currentTimeMillis() - timerStart >= duration);
+        long e = System.currentTimeMillis() - timerStart;
+        return (e >= duration);
+    }
+    public void end(boolean interrupted){
+        shooter.stopConvey();
+        intake.inend();
     }
 
 }
