@@ -9,6 +9,8 @@ package frc.robot;
 // import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.PS4Controller;
+import frc.robot.commands.ABSORB;
+import frc.robot.commands.BARF;
 import frc.robot.commands.LAUNCH;
 import frc.robot.commands.TurnToAngle;
 // import frc.robot.Constants.DriveConstants;
@@ -16,6 +18,7 @@ import frc.robot.commands.TurnToAngle;
 //import frc.robot.commands.TurnToAngle;
 //import frc.robot.commands.TurnToAngleProfiled;
 import frc.robot.subsystems.DriveSubsystem;
+import frc.robot.subsystems.IntakeSubsytem;
 import frc.robot.subsystems.ShooterSystem;
 // import frc.robot.subsystems.ShooterSystem;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -38,15 +41,17 @@ public class RobotContainer {
     // The robot's subsystems
     private final DriveSubsystem m_robotDrive = new DriveSubsystem();
     private final ShooterSystem m_shooterSystem = new ShooterSystem();
+    private final IntakeSubsytem m_intakeSubsytem = new IntakeSubsytem();
+    private final ABSORB absorb = new ABSORB(m_intakeSubsytem);
     // The driver's controller
     // PS4Controller m_driverController = new
     // PS4Controller(OIConstants.kDriverControllerPort);
     Joystick m_driverController = new Joystick(0);
     JoystickButton button1 = new JoystickButton(m_driverController, 1);
     JoystickButton button2 = new JoystickButton(m_driverController, 2);
-    // JoystickButton button3 = new JoystickButton(m_driverController, 3);
-    // JoystickButton button4 = new JoystickButton(m_driverController, 4);
-    // JoystickButton button5 = new JoystickButton(m_driverController, 5);
+    JoystickButton button3 = new JoystickButton(m_driverController, 3);
+    JoystickButton button4 = new JoystickButton(m_driverController, 4);
+    JoystickButton button5 = new JoystickButton(m_driverController, 5);
     // JoystickButton button6 = new JoystickButton(m_driverController, 6);
     // JoystickButton button7 = new JoystickButton(m_driverController, 7);
     // JoystickButton button8 = new JoystickButton(m_driverController, 8);
@@ -107,7 +112,10 @@ public class RobotContainer {
          * m_robotDrive));
          */
         button1.whenPressed(new TurnToAngle(90, m_robotDrive));
-        button2.whenPressed(new LAUNCH(4000, m_shooterSystem));
+        button2.whenPressed(new LAUNCH(5000, m_shooterSystem));
+        button3.whenHeld(absorb);
+        button4.cancelWhenPressed(absorb);
+        button5.whenPressed(new BARF(m_shooterSystem, m_intakeSubsytem, 2500));
     }
 
     /**

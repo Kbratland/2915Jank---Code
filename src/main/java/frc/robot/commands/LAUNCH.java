@@ -21,19 +21,18 @@ public class LAUNCH extends CommandBase {
         timerStart = System.currentTimeMillis();
         System.out.println(timerStart);
     }
-
     @Override
     public void execute() {
         shooterSystem.shoot();
-        if (System.currentTimeMillis() - timerStart >= duration / 2) {
+        if(System.currentTimeMillis() - timerStart >= duration - 750){
             shooterSystem.convey();
         }
     }
-
-    public void end(boolean interrupted) {
+  
+    public void end(boolean interrupted){
         shooterSystem.end();
+        shooterSystem.stopConvey();
     }
-
     @Override
     public boolean isFinished() {
         long e = System.currentTimeMillis() - timerStart;
