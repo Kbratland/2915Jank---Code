@@ -1,13 +1,12 @@
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.Joystick;
+// import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.ShooterSystem;
 
 public class LAUNCH extends CommandBase {
     public ShooterSystem shooterSystem;
     double speed = 0;
-    public Joystick joystick;
     public LAUNCH(ShooterSystem shooter) {
         addRequirements(shooter);
         System.out.println();
