@@ -19,6 +19,9 @@ public class ShooterSystem extends SubsystemBase {
     public void end(){
         neoShooter.set(0);
     }
+    public void linearControll(double speed){
+        beltMover.set(speed);
+    }
     public void convey(){
         beltMover.set(-1);
     }

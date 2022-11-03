@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.PS4Controller;
 import frc.robot.commands.ABSORB;
 import frc.robot.commands.BARF;
+import frc.robot.commands.FONDLE;
 import frc.robot.commands.LAUNCH;
 // import frc.robot.commands.TurnToAngle;
 // import frc.robot.Constants.DriveConstants;
@@ -44,6 +45,7 @@ public class RobotContainer {
     private final ShooterSystem m_shooterSystem = new ShooterSystem();
     private final IntakeSubsytem m_intakeSubsytem = new IntakeSubsytem();
     private final ABSORB absorb = new ABSORB(m_intakeSubsytem, m_driverController);
+    private final FONDLE fondle = new FONDLE(m_shooterSystem, m_driverController);
     // The driver's controller
     // PS4Controller m_driverController = new
     // PS4Controller(OIConstants.kDriverControllerPort);
@@ -53,7 +55,7 @@ public class RobotContainer {
     JoystickButton button4 = new JoystickButton(m_driverController, 4);
     JoystickButton button5 = new JoystickButton(m_driverController, 5);
    
-    // JoystickButton button6 = new JoystickButton(m_driverController, 6);
+    JoystickButton button6 = new JoystickButton(m_driverController, 6);
     // JoystickButton button7 = new JoystickButton(m_driverController, 7);
     // JoystickButton button8 = new JoystickButton(m_driverController, 8);
     // JoystickButton button9 = new JoystickButton(m_driverController, 9);
@@ -117,6 +119,8 @@ public class RobotContainer {
         button1.whenPressed(new LAUNCH(2500, m_shooterSystem));
         button3.whenHeld(absorb);
         button4.whenPressed(new BARF(m_shooterSystem, m_intakeSubsytem, 2500));
+        button5.whenPressed(fondle);
+        button6.cancelWhenPressed(fondle);
     }
 
     /**
