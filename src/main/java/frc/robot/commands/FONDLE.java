@@ -22,7 +22,7 @@ public class FONDLE extends CommandBase{
     @Override
     public void execute(){
         System.out.println(joystick.getRawAxis(2));
-        convey.linearControll(joystick.getRawAxis(2));
+        convey.linearControll(joystick.getRawAxis(2)/4);
     }
     public boolean isFinished(){
         return false;
