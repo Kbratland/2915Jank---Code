@@ -13,6 +13,7 @@ import frc.robot.commands.ABSORB;
 import frc.robot.commands.BARF;
 import frc.robot.commands.FONDLE;
 import frc.robot.commands.LAUNCH;
+import frc.robot.subsystems.BeltSystem;
 // import frc.robot.commands.TurnToAngle;
 // import frc.robot.Constants.DriveConstants;
 //import frc.robot.Constants.OIConstants;
@@ -44,8 +45,9 @@ public class RobotContainer {
     private final DriveSubsystem m_robotDrive = new DriveSubsystem();
     private final ShooterSystem m_shooterSystem = new ShooterSystem();
     private final IntakeSubsytem m_intakeSubsytem = new IntakeSubsytem();
+    private final BeltSystem m_beltSubsystem = new BeltSystem();
     private final ABSORB absorb = new ABSORB(m_intakeSubsytem, m_driverController);
-    private final FONDLE fondle = new FONDLE(m_shooterSystem, m_driverController);
+    private final FONDLE fondle = new FONDLE(m_beltSubsystem, m_driverController);
     private final LAUNCH launch = new LAUNCH(m_shooterSystem,1);
     // The driver's controller
     // PS4Controller m_driverController = new
@@ -119,7 +121,7 @@ public class RobotContainer {
         //button2.whenPressed(new TurnToAngle(90, m_robotDrive));
         button1.whenHeld(launch);
         button3.whenHeld(absorb);
-        button4.whenPressed(new BARF(m_shooterSystem, m_intakeSubsytem, 2500));
+        button4.whenPressed(new BARF(m_beltSubsystem, m_intakeSubsytem, 2500));
         button5.whenPressed(fondle);
         button6.cancelWhenPressed(fondle);
     }
