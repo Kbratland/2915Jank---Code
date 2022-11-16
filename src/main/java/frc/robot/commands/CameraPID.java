@@ -31,9 +31,11 @@ public class CameraPID extends PIDCommand {
         drive::getHeading,
         // Set reference to target
         targetAngleDegrees,
+        
         // Pipe output to turn robot
         output -> {
           output /= 100;
+          System.out.println("angle" + targetAngleDegrees);
           if (output < 0) {
             output = MathUtil.clamp(output, -0.8, -0.46);
           }
@@ -60,6 +62,7 @@ public class CameraPID extends PIDCommand {
 
   @Override
   public void initialize() { 
+    m_drive.zeroHeading();
     super.initialize();
     m_drive.zeroHeading();
 

@@ -18,14 +18,14 @@ public class CameraTrack extends CommandBase {
         double yaw = camera.getTargetYaw();
         System.out.println(yaw);
         //driveSubsystem.arcadeDrive(0, yaw * -1);
-        if(yaw < 0){
-          driveSubsystem.arcadeDrive(0, 0.55);
+        if(yaw < -0.3){
+          driveSubsystem.arcadeDrive(0, -0.45);
         }
         else if (yaw > -0.3 && yaw < 0.3){
           driveSubsystem.arcadeDrive(0, 0);
         }
-        else if (yaw > 0){
-          driveSubsystem.arcadeDrive(0, -0.55);
+        else if (yaw > 0.3){
+          driveSubsystem.arcadeDrive(0, 0.45);
         }
         // else if(yaw == null){
         // driveSubsystem.arcadeDrive(0, 0);
