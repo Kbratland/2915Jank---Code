@@ -10,6 +10,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.PS4Controller;
 import frc.robot.commands.ABSORB;
+import frc.robot.commands.AUTONOMOUSforwards;
 import frc.robot.commands.BARF;
 import frc.robot.commands.FONDLE;
 import frc.robot.commands.LAUNCH;
@@ -24,7 +25,7 @@ import frc.robot.subsystems.IntakeSubsytem;
 import frc.robot.subsystems.ShooterSystem;
 // import frc.robot.subsystems.ShooterSystem;
 import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.InstantCommand;
+// import edu.wpi.first.wpilibj2.command.InstantCommand;
 //import edu.wpi.first.wpilibj2.command.PIDCommand;
 import edu.wpi.first.wpilibj2.command.RunCommand;
 //import edu.wpi.first.wpilibj2.command.button.JoystickButton;
@@ -49,6 +50,7 @@ public class RobotContainer {
     private final ABSORB absorb = new ABSORB(m_intakeSubsytem, m_driverController);
     private final FONDLE fondle = new FONDLE(m_beltSubsystem, m_driverController);
     private final LAUNCH launch = new LAUNCH(m_shooterSystem,1);
+    // private final AUTONOMOUSforwards autonomouSforwards = new AUTONOMOUSforwards(m_robotDrive, 3000);
     // The driver's controller
     // PS4Controller m_driverController = new
     // PS4Controller(OIConstants.kDriverControllerPort);
@@ -133,6 +135,6 @@ public class RobotContainer {
      */
     public Command getAutonomousCommand() {
         // no auto
-        return new InstantCommand();
+        return new AUTONOMOUSforwards(m_robotDrive, 3000);
     }
 }
