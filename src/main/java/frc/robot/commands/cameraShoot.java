@@ -25,16 +25,18 @@ public class cameraShoot extends CommandBase{
     }
     public void execute(){
         if(driveSubsystem.getHeading() < targetAngle - tol){
-            // driveSubsystem.arcadeDrive(0, 0.45);
+            driveSubsystem.arcadeDrive(0, 0.45);
             System.out.println("turning pos");
+            shooterSystem.end();
         }
         else if(driveSubsystem.getHeading() > targetAngle + tol){
-            // driveSubsystem.arcadeDrive(0, -0.45);
+            driveSubsystem.arcadeDrive(0, -0.45);
             System.out.println("turning Neg");
+            shooterSystem.end();
         }
         else if (driveSubsystem.getHeading() > targetAngle - tol && driveSubsystem.getHeading() < targetAngle + tol){
-            // driveSubsystem.arcadeDrive(0, 0);
-            // shooterSystem.shoot(1);
+            driveSubsystem.arcadeDrive(0, 0);
+            shooterSystem.shoot(1);
             System.out.println("shooting");
             if(!started){
                 timerStart = System.currentTimeMillis();
