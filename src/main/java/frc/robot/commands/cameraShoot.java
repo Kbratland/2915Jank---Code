@@ -13,6 +13,7 @@ public class cameraShoot extends CommandBase{
     long timerStart;
     boolean started = false;
     long duration = 1500;
+    double tol = 3;
     public cameraShoot(DriveSubsystem driveSubsystem, ShooterSystem shooterSystem, Camera camera){
         this.driveSubsystem = driveSubsystem;
         this.shooterSystem = shooterSystem;
@@ -23,15 +24,15 @@ public class cameraShoot extends CommandBase{
         targetAngle = camera.getTargetYaw();
     }
     public void execute(){
-        if(driveSubsystem.getHeading() < targetAngle - 0.3){
+        if(driveSubsystem.getHeading() < targetAngle - tol){
             // driveSubsystem.arcadeDrive(0, 0.45);
             System.out.println("turning pos");
         }
-        else if(driveSubsystem.getHeading() > targetAngle + 0.3){
+        else if(driveSubsystem.getHeading() > targetAngle + tol){
             // driveSubsystem.arcadeDrive(0, -0.45);
             System.out.println("turning Neg");
         }
-        else if (driveSubsystem.getHeading() > targetAngle - 0.3 && driveSubsystem.getHeading() < targetAngle + 0.3){
+        else if (driveSubsystem.getHeading() > targetAngle - tol && driveSubsystem.getHeading() < targetAngle + tol){
             // driveSubsystem.arcadeDrive(0, 0);
             // shooterSystem.shoot(1);
             System.out.println("shooting");
