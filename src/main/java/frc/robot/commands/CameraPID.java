@@ -25,7 +25,6 @@ public class CameraPID extends PIDCommand {
 
   public CameraPID(double targetAngleDegrees, DriveSubsystem drive) {
     super(
-
         new PIDController(DriveConstants.kTurnP, DriveConstants.kTurnI, DriveConstants.kTurnD),
         // Close loop on heading
         drive::getHeading,
