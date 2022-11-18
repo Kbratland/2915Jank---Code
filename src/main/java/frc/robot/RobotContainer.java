@@ -58,7 +58,7 @@ public class RobotContainer {
     private final LAUNCH launch = new LAUNCH(m_shooterSystem,1);
     private final CameraTrack cameraTrack = new CameraTrack(camera, m_robotDrive);
     private final DBmode dBmode = new DBmode(camera, m_robotDrive);
-    private final cameraShoot camerashoot = new cameraShoot(m_robotDrive, m_shooterSystem, camera);
+    private final cameraShoot camerashoot = new cameraShoot(m_robotDrive, m_shooterSystem, camera, m_beltSubsystem);
     // private final AUTONOMOUSforwards autonomouSforwards = new AUTONOMOUSforwards(m_robotDrive, 3000);
     // The driver's controller
     // PS4Controller m_driverController = new
