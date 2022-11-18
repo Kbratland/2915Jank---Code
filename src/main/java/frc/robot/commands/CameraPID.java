@@ -6,15 +6,16 @@ package frc.robot.commands;
 
 import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.math.controller.PIDController;
+import edu.wpi.first.wpilibj2.command.PIDCommand;
 import frc.robot.Constants.DriveConstants;
 import frc.robot.subsystems.Camera;
 import frc.robot.subsystems.DriveSubsystem;
-import edu.wpi.first.wpilibj2.command.PIDCommand;
 
 /** A command that will turn the robot to the specified angle. */
 public class CameraPID extends PIDCommand {
+
   /**
-   * 
+   *
    * Turns to robot to the specified angle.
    *
    * @param targetAngleDegrees The angle to turn to
@@ -25,29 +26,33 @@ public class CameraPID extends PIDCommand {
 
   public CameraPID(double targetAngleDegrees, DriveSubsystem drive) {
     super(
-        new PIDController(DriveConstants.kTurnP, DriveConstants.kTurnI, DriveConstants.kTurnD),
-        // Close loop on heading
-        drive::getHeading,
-        // Set reference to target
-        targetAngleDegrees,
-        
-        // Pipe output to turn robot
-        output -> {
-          output /= 100;
-          System.out.println("angle" + targetAngleDegrees);
-          if (output < 0) {
-            output = MathUtil.clamp(output, -0.8, -0.46);
-          }
-          if (output > 0) {
-            output = MathUtil.clamp(output, 0.46, 0.8);
-          }
-          drive.arcadeDrive(0, output);
-          System.out.println("Output " + output);
-          System.out.println(targetAngleDegrees + " angle");
+      new PIDController(
+        DriveConstants.kTurnP,
+        DriveConstants.kTurnI,
+        DriveConstants.kTurnD
+      ),
+      // Close loop on heading
+      drive::getHeading,
+      // Set reference to target
+      targetAngleDegrees,
+      // Pipe output to turn robot
+      output -> {
+        output /= 100;
+        System.out.println("angle" + targetAngleDegrees);
+        if (output < 0) {
+          output = MathUtil.clamp(output, -0.8, -0.46);
+        }
+        if (output > 0) {
+          output = MathUtil.clamp(output, 0.46, 0.8);
+        }
+        drive.arcadeDrive(0, output);
+        System.out.println("Output " + output);
+        System.out.println(targetAngleDegrees + " angle");
         //   System.out.println("Output is " + output);
-        },
-        // Require the drive
-        drive);
+      },
+      // Require the drive
+      drive
+    );
     m_drive = drive;
 
     // Set the controller to be continuous (because it is an angle controller)
@@ -56,16 +61,17 @@ public class CameraPID extends PIDCommand {
     // stationary at the
     // setpoint before it is considered as having reached the reference
     getController()
-        .setTolerance(DriveConstants.kTurnToleranceDeg, DriveConstants.kTurnRateToleranceDegPerS);
+      .setTolerance(
+        DriveConstants.kTurnToleranceDeg,
+        DriveConstants.kTurnRateToleranceDegPerS
+      );
   }
 
   @Override
-  public void initialize() { 
+  public void initialize() {
     m_drive.zeroHeading();
     super.initialize();
     m_drive.zeroHeading();
-
-
   }
 
   public boolean isFinished() {

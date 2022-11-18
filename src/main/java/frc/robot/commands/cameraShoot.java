@@ -26,11 +26,13 @@ public class cameraShoot extends CommandBase{
     public void initialize(){
         targetAngle = camera.getTargetYaw();
         driveSubsystem.zeroHeading();
+        // targetAngle *= -1;
     }
     public void execute(){
-        targetAngle *= -1;
+       
         double currHeading = driveSubsystem.getHeading();
         if (!started){
+            System.out.println("Target is " + targetAngle);
             System.out.println("Current angle is " + currHeading);
             if(currHeading < targetAngle - tol){
                 //turn right
