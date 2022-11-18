@@ -17,6 +17,7 @@ import frc.robot.commands.CameraTrack;
 import frc.robot.commands.DBmode;
 import frc.robot.commands.FONDLE;
 import frc.robot.commands.LAUNCH;
+import frc.robot.commands.cameraShoot;
 import frc.robot.subsystems.BeltSystem;
 import frc.robot.subsystems.Camera;
 // import frc.robot.commands.TurnToAngle;
@@ -57,6 +58,7 @@ public class RobotContainer {
     private final LAUNCH launch = new LAUNCH(m_shooterSystem,1);
     private final CameraTrack cameraTrack = new CameraTrack(camera, m_robotDrive);
     private final DBmode dBmode = new DBmode(camera, m_robotDrive);
+    private final cameraShoot camerashoot = new cameraShoot(m_robotDrive, m_shooterSystem, camera);
     // private final AUTONOMOUSforwards autonomouSforwards = new AUTONOMOUSforwards(m_robotDrive, 3000);
     // The driver's controller
     // PS4Controller m_driverController = new
@@ -71,7 +73,7 @@ public class RobotContainer {
     JoystickButton button7 = new JoystickButton(m_driverController, 7);
     JoystickButton button8 = new JoystickButton(m_driverController, 8);
     JoystickButton button9 = new JoystickButton(m_driverController, 9);
-    // JoystickButton button10 = new JoystickButton(m_driverController, 10);
+    JoystickButton button10 = new JoystickButton(m_driverController, 10);
     // JoystickButton button11 = new JoystickButton(m_driverController, 11);
 
     /**
@@ -136,6 +138,7 @@ public class RobotContainer {
         button7.whileHeld(cameraTrack);
         button8.whileHeld(dBmode);
         button9.whenPressed(new CameraPID(camera.getTargetYaw(), m_robotDrive));
+        button10.whenPressed(camerashoot);
     }
 
     /**
