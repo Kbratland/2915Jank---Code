@@ -21,7 +21,7 @@ import frc.robot.commands.AUTONOMOUSforwards;
 import frc.robot.commands.BARF;
 import frc.robot.commands.CameraPID;
 import frc.robot.commands.CameraTrack;
-import frc.robot.commands.DBmode;
+// import frc.robot.commands.DBmode;
 import frc.robot.commands.FONDLE;
 import frc.robot.commands.LAUNCH;
 import frc.robot.commands.cameraShoot;
@@ -61,7 +61,7 @@ public class RobotContainer {
   private final FONDLE fondle = new FONDLE(m_beltSubsystem, m_driverController);
   private final LAUNCH launch = new LAUNCH(m_shooterSystem, 1);
   private final CameraTrack cameraTrack = new CameraTrack(camera, m_robotDrive);
-  private final DBmode DBmode = new DBmode(camera, m_robotDrive);
+  // private final DBmode DBmode = new DBmode(camera, m_robotDrive);
   // private final AUTONOMOUSforwards autonomouSforwards = new AUTONOMOUSforwards(m_robotDrive, 3000);
   // The driver's controller
   // PS4Controller m_driverController = new
@@ -144,7 +144,7 @@ public class RobotContainer {
     button5.whenPressed(fondle);
     button6.cancelWhenPressed(fondle);
     button7.whileHeld(cameraTrack);
-    button8.whileHeld(DBmode);
+    // button8.whileHeld(DBmode);
     button9.whenPressed(new CameraPID(camera.getTargetYaw(), m_robotDrive));
     button10.whenPressed(
       new cameraShoot(m_robotDrive, m_shooterSystem, camera, m_beltSubsystem)
