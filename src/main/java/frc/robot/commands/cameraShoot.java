@@ -10,7 +10,7 @@ public class cameraShoot extends CommandBase{
     ShooterSystem shooterSystem;
     Camera camera;
     double targetAngle = 0;
-    long timerStart;
+    long timerStart = 10;
     boolean started = false;
     long duration = 1500;
     double tol = 10;
@@ -24,13 +24,14 @@ public class cameraShoot extends CommandBase{
         targetAngle = camera.getTargetYaw();
     }
     public void execute(){
+        targetAngle *= -1;
         if(driveSubsystem.getHeading() < targetAngle - tol){
-            driveSubsystem.arcadeDrive(0, 0.45);
+            driveSubsystem.arcadeDrive(0, 0.55);
             System.out.println("turning pos");
             shooterSystem.end();
         }
         else if(driveSubsystem.getHeading() > targetAngle + tol){
-            driveSubsystem.arcadeDrive(0, -0.45);
+            driveSubsystem.arcadeDrive(0, -0.55);
             System.out.println("turning Neg");
             shooterSystem.end();
         }
@@ -45,7 +46,7 @@ public class cameraShoot extends CommandBase{
         }
     }
     public boolean isFinished(){
-        return (duration < System.currentTimeMillis() - timerStart);
+        return ( started && duration < System.currentTimeMillis() - timerStart);
     }
     public void end(boolean interupted){
         shooterSystem.end();
