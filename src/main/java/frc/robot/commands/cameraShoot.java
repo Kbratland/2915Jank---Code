@@ -22,9 +22,11 @@ public class cameraShoot extends CommandBase{
     @Override
     public void initialize(){
         targetAngle = camera.getTargetYaw();
+        driveSubsystem.zeroHeading();
     }
     public void execute(){
         targetAngle *= -1;
+        System.out.println("Current angle is " + driveSubsystem.getHeading());
         if(driveSubsystem.getHeading() < targetAngle - tol){
             driveSubsystem.arcadeDrive(0, 0.55);
             System.out.println("turning pos");
