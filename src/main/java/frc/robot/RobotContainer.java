@@ -61,7 +61,7 @@ public class RobotContainer {
   private final FONDLE fondle = new FONDLE(m_beltSubsystem, m_driverController);
   private final LAUNCH launch = new LAUNCH(m_shooterSystem, 1);
   private final CameraTrack cameraTrack = new CameraTrack(camera, m_robotDrive);
-  private final DBmode dBmode = new DBmode(camera, m_robotDrive);
+  private final DBmode DBmode = new DBmode(camera, m_robotDrive);
   private final cameraShoot camerashoot = new cameraShoot(
     m_robotDrive,
     m_shooterSystem,
@@ -150,7 +150,7 @@ public class RobotContainer {
     button5.whenPressed(fondle);
     button6.cancelWhenPressed(fondle);
     button7.whileHeld(cameraTrack);
-    button8.whileHeld(dBmode);
+    button8.whileHeld(DBmode);
     button9.whenPressed(new CameraPID(camera.getTargetYaw(), m_robotDrive));
     button10.whenPressed(camerashoot);
   }

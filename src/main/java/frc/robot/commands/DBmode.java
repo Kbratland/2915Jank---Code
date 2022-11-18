@@ -20,7 +20,7 @@ public class DBmode extends CommandBase {
      this.driveSubsystem = driveSubsystem;
     }
     public void initialize(){
-      tolx = 10;
+      
     }
     public void execute(){
     System.out.println("depth " + a + ", Yaw " + x);
