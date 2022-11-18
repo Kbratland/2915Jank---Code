@@ -62,12 +62,6 @@ public class RobotContainer {
   private final LAUNCH launch = new LAUNCH(m_shooterSystem, 1);
   private final CameraTrack cameraTrack = new CameraTrack(camera, m_robotDrive);
   private final DBmode DBmode = new DBmode(camera, m_robotDrive);
-  private final cameraShoot camerashoot = new cameraShoot(
-    m_robotDrive,
-    m_shooterSystem,
-    camera,
-    m_beltSubsystem
-  );
   // private final AUTONOMOUSforwards autonomouSforwards = new AUTONOMOUSforwards(m_robotDrive, 3000);
   // The driver's controller
   // PS4Controller m_driverController = new
@@ -152,7 +146,9 @@ public class RobotContainer {
     button7.whileHeld(cameraTrack);
     button8.whileHeld(DBmode);
     button9.whenPressed(new CameraPID(camera.getTargetYaw(), m_robotDrive));
-    button10.whenPressed(camerashoot);
+    button10.whenPressed(
+      new cameraShoot(m_robotDrive, m_shooterSystem, camera, m_beltSubsystem)
+    );
   }
 
   /**
