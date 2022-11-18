@@ -16,14 +16,14 @@ public class DBmode extends CommandBase {
     }
     //e
     public void execute(){
-        double a = camera.getTargetArea();
-        double x = camera.getTargetYaw();
+        double a = camera.getTargetArea();
+        double x = camera.getTargetYaw();
         double tolx = 10;
         double r = 0;
-        System.out.println("depth " + a + ", Yaw " + x);
+        System.out.println("depth " + a + ", Yaw " + x);
         //driveSubsystem.arcadeDrive(0, yaw * -1);
         if (x > -tolx && x < tolx){
-          driveSubsystem.arcadeDrive(0, 0);
+          driveSubsystem.arcadeDrive(0, 0);
         }
         if(x < -tolx){
           r = 0;
@@ -33,7 +33,7 @@ public class DBmode extends CommandBase {
           else {
             r = -0.5;
           }
-          driveSubsystem.arcadeDrive(0, r);
+          driveSubsystem.arcadeDrive(0, r);
         }
         else if(x < 10 && x > 5){
           r = 0;
