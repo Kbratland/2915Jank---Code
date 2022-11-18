@@ -13,7 +13,7 @@ public class cameraShoot extends CommandBase{
     long timerStart = 10;
     boolean started = false;
     long duration = 1500;
-    double tol = 10;
+    double tol = 3;
     public cameraShoot(DriveSubsystem driveSubsystem, ShooterSystem shooterSystem, Camera camera){
         this.driveSubsystem = driveSubsystem;
         this.shooterSystem = shooterSystem;
