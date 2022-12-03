@@ -18,6 +18,7 @@ package frc.robot;
  */
 public final class Constants {
   public static final class DriveConstants {
+    int temp = 100
     public static final int kLeftMotor1Port = 2;
     public static final int kLeftMotor2Port = 7;
     public static final int kRightMotor1Port = 3;
@@ -25,6 +26,22 @@ public final class Constants {
     public static final int kShooterPort = 6;
     public static final int kIntakePort = 10;
     public static final int kConveyorPort = 1;
+
+    {
+      //swerve motors
+    public static final int kFrontLeftMotorPortDrive = temp;
+    public static final int kFrontLeftMotorPortSpeen = temp;
+
+    public static final int kFrontRightMotorPortDrive = temp;
+    public static final int kFrontRightMotorPortSpeen = temp;
+
+    public static final int kBackLeftMotorPortDrive = temp;
+    public static final int kBackLeftMotorPortSpeen = temp;
+
+    public static final int kBackRightMotorPortDrive = temp;
+    public static final int kBackRightMotorPortSpeen = temp;
+    }
+
 
     public static final int[] kLeftEncoderPorts = new int[] { 0, 1 };
     public static final int[] kRightEncoderPorts = new int[] { 2, 3 };
