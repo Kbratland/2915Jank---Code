@@ -53,7 +53,7 @@ public class RobotContainer {
   private final ShooterSystem m_shooterSystem = new ShooterSystem();
   private final IntakeSubsytem m_intakeSubsytem = new IntakeSubsytem();
   private final BeltSystem m_beltSubsystem = new BeltSystem();
-  ptivate final SpeenorSubsystem m_speenorSubsytem = new SpeenorSubsystem
+  ptivate final SpeenorSubsystem m_speenorSubsytem = new SpeenorSubsystem();
   private final Camera camera = new Camera();
   private final ABSORB absorb = new ABSORB(
     m_intakeSubsytem,
